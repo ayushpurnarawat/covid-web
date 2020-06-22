@@ -8,7 +8,7 @@ class MapStates extends Component{
         
         return(
             <div>
-                <TestMap/>
+                <TestMap MapRegion={"india"}/>
             </div>
         )
     }

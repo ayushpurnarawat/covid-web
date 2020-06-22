@@ -1,16 +1,19 @@
 
 
-function MapNavigation(state,response){
+function MapNavigation(Region,response,MapName){
     
 
-
+    // console.log(response)
     var data= {
         ...response.data.statewise
     }
-    // console.log(response)
+
+    
+    // console.log(MapName)
+    if(MapName==='india'){
     for(var key in data)
     {
-        if(state.st_nm===response.data.statewise[key].state)
+        if(Region.st_nm===response.data.statewise[key].state)
         {
             // console.log("Active Cases in-> ",response.data.statewise[key].state,"is-> ",response.data.statewise[key].deaths)
             return  [response.data.statewise[key].state,
@@ -20,6 +23,25 @@ function MapNavigation(state,response){
             response.data.statewise[key].recovered
             ]
         }
+    }
+    }
+    else{
+        var state_name_response = Region.st_nm 
+        var district_name_response = Region.district
+        var DistrictData={
+            ...response.data[state_name_response].districtData
+        }
+        
+        // console.log(DistrictData)
+
+        
+        // console.log(response.data[state_name_response].districtData[district_name_response])
+        return[
+            district_name_response,
+            response.data[state_name_response].districtData[district_name_response].active,
+            response.data[state_name_response].districtData[district_name_response].confirmed,
+            response.data[state_name_response].districtData[district_name_response].deceased
+        ]
     }
     
 }
