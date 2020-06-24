@@ -1,13 +1,20 @@
-
-
+import React, { useRef } from 'react'
+import * as d3 from 'd3'
 function MapNavigation(Region,response,MapName){
     
-
+    if(navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(getPosi)
+    }
+    function getPosi(position){
+        // console.log(position)
+    }
     // console.log(response)
     var data= {
         ...response.data.statewise
     }
-
+    // var svg = useRef(null)
+    //     console.log(svg)
     
     // console.log(MapName)
     if(MapName==='india'){

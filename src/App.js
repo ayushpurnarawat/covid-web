@@ -2,12 +2,13 @@ import React from 'react';
 import './App.css';
 import MapStates from './MapPractice/DrawMap/MapStates';
 
-function App() {
+function App(props) {
 
   
 
   return (
     <div className="App" >
+      
         {/* <Main/>
         <LineChart/> */}
         {/* <BackGroundMap/> */}
