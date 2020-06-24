@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import './App.css';
-import MapStates from './MapPractice/DrawMap/MapStates';
-
+// import MapStates from './MapPractice/DrawMap/MapStates';
+const MapStates = React.lazy(()=>import('./MapPractice/DrawMap/MapStates'))
 function App(props) {
 
   
@@ -15,7 +15,9 @@ function App(props) {
         {/* <HoverMap/> */}
         {/* <TestMap/> */}
         {/* <MapVisulizer/> */}
-        <MapStates/>
+        <Suspense fallback={<div>Loading.........</div>}>
+              <MapStates/>
+        </Suspense>
     </div>
   );
 }

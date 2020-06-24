@@ -291,9 +291,9 @@ function TestMap (props){
     <div data={state_Name.Confrim}>
       <h2 style={{color:'white'}}>{state_Name.state_Name}</h2>
       {/* <DataSection data={state_Name.Recoverd}/> */}
-      <Suspense fallback={<div><h1>Loading</h1></div>} >
+      {/* <Suspense fallback={<div><h1>Loading</h1></div>} >
           <DataSection/>
-      </Suspense>
+      </Suspense> */}
     <div style={{display:'flex',flexDirection:'row'}} data={"ayush"} id="ayush">
       
       <div className={Classes.Map_Data_Confirm} id="confirm">

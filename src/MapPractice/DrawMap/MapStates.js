@@ -7,7 +7,7 @@ import BarPlot from '../../FinaleChart/BarPlot'
 import * as d3 from 'd3'
 import { timeDay, timeout } from 'd3'
 import Sus from './SuspenseData'
-const SuspenseComponent = React.lazy(()=>import('./SuspenseData'))
+// const SuspenseComponent = React.lazy(()=>import('./SuspenseData'))
 var totalconfirmed=0
 var totalrecovered=0
 var totaldeceased=0
@@ -38,12 +38,12 @@ class MapStates extends Component{
         
         
     }
-    TimeOut=()=>{
-        setTimeout(()=>{
-            this.setState({ref:totalconfirmed})
-        },5000)
-        console.log("timeOut")
-    }
+    // TimeOut=()=>{
+    //     setTimeout(()=>{
+    //         this.setState({ref:totalconfirmed})
+    //     },5000)
+    //     console.log("timeOut")
+    // }
     render()
     {
         // this.TimeOut()
@@ -94,11 +94,11 @@ class MapStates extends Component{
                     </div>
                     </div>
                     {/* <div className={classes.LoliPopChart} id={LoliPopChart}> */}
-                        <LoliPopChart/>
+                        {/* <LoliPopChart/> */}
                     {/* </div> */}
-                    <Suspense fallback={<div><h1>LOADING</h1></div>}>
+                    {/* <Suspense fallback={<div><h1>LOADING</h1></div>}>
                         <SuspenseComponent/>
-                    </Suspense>
+                    </Suspense> */}
                     
                 </div>
                 <div id="MapSection" className={classes.MapSection}>
