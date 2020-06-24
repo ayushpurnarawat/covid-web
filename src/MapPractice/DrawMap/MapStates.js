@@ -1,4 +1,4 @@
-import React, { Component, useRef, useEffect } from 'react'
+import React, { Component, useRef, useEffect, Suspense } from 'react'
 import TestMap from './ma'
 import classes from './MapStates.module.css'
 import Axios from 'axios'
@@ -6,6 +6,8 @@ import LoliPopChart from '../../FinaleChart/LolliPopChart'
 import BarPlot from '../../FinaleChart/BarPlot'
 import * as d3 from 'd3'
 import { timeDay, timeout } from 'd3'
+import Sus from './SuspenseData'
+const SuspenseComponent = React.lazy(()=>import('./SuspenseData'))
 var totalconfirmed=0
 var totalrecovered=0
 var totaldeceased=0
@@ -52,7 +54,7 @@ class MapStates extends Component{
                                              
                     <div className={classes.Change_Country}>
                             <div className={classes.Change_Country_HighLight}>
-                                    <h3 className={classes.ConfirmCases_p}>Country</h3>
+                                    <h3 className={classes.ConfirmCases_p}>Country name</h3>
                             </div>
                     </div>
                     
@@ -94,6 +96,10 @@ class MapStates extends Component{
                     {/* <div className={classes.LoliPopChart} id={LoliPopChart}> */}
                         <LoliPopChart/>
                     {/* </div> */}
+                    <Suspense fallback={<div><h1>LOADING</h1></div>}>
+                        <SuspenseComponent/>
+                    </Suspense>
+                    
                 </div>
                 <div id="MapSection" className={classes.MapSection}>
                 

@@ -1,12 +1,14 @@
-import React, { useEffect ,useState} from 'react'
+import React, { useEffect ,useState, Suspense} from 'react'
 import * as d3 from 'd3' 
 import Axios from 'axios'
 import MapNavigation from './MapNavigation'
 import updateMap from './updateMap'
 import Classes from './TestMap.module.css'
 import { svg } from 'd3'
-import DataSection from './DataSection'
+// import DataSection from './DataSection'
+
 import * as topojson from 'topojson'
+const DataSection = React.lazy(()=>import('./DataSection'))
 // var stat= null
 var Response = {}
 function TestMap (props){
@@ -288,8 +290,10 @@ function TestMap (props){
   return(
     <div data={state_Name.Confrim}>
       <h2 style={{color:'white'}}>{state_Name.state_Name}</h2>
-      <DataSection data={state_Name.Recoverd}/>
-
+      {/* <DataSection data={state_Name.Recoverd}/> */}
+      <Suspense fallback={<div><h1>Loading</h1></div>} >
+          <DataSection/>
+      </Suspense>
     <div style={{display:'flex',flexDirection:'row'}} data={"ayush"} id="ayush">
       
       <div className={Classes.Map_Data_Confirm} id="confirm">
